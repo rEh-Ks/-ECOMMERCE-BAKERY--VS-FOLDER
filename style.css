@@ -1165,6 +1165,209 @@ body {
     margin-bottom: 2rem;
 }
 
+/* ===== Authentication Pages (Login & Register) ===== */
+.auth-section {
+    min-height: calc(100vh - 200px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    background: linear-gradient(135deg, #f9f9f9 0%, #f0f0f0 100%);
+}
+
+.auth-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    max-width: 1000px;
+    width: 100%;
+    background-color: var(--white);
+    border-radius: 12px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.auth-card {
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.auth-card h1 {
+    font-size: 2rem;
+    color: var(--secondary-color);
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+}
+
+.auth-card > p {
+    color: var(--text-light);
+    font-size: 1rem;
+    margin-bottom: 2rem;
+}
+
+.auth-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-bottom: 0.5rem;
+    font-size: 0.95rem;
+}
+
+.form-group input {
+    padding: 0.875rem;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-family: inherit;
+    transition: var(--transition);
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 8px rgba(225, 212, 194, 0.4);
+}
+
+.form-group.checkbox {
+    flex-direction: row;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 0.5rem;
+}
+
+.form-group.checkbox input {
+    width: 18px;
+    height: 18px;
+    margin: 0;
+    cursor: pointer;
+}
+
+.form-group.checkbox label {
+    margin: 0;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+
+.auth-footer {
+    text-align: center;
+    color: var(--text-light);
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+}
+
+.auth-footer a {
+    color: var(--accent-color);
+    text-decoration: none;
+    font-weight: 600;
+    transition: var(--transition);
+}
+
+.auth-footer a:hover {
+    color: var(--secondary-color);
+    text-decoration: underline;
+}
+
+.forgot-password {
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.forgot-password a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: var(--transition);
+}
+
+.forgot-password a:hover {
+    color: var(--accent-color);
+    text-decoration: underline;
+}
+
+.auth-divider {
+    text-align: center;
+    color: #bbb;
+    font-weight: 600;
+    margin: 1.5rem 0;
+    position: relative;
+}
+
+.auth-divider::before,
+.auth-divider::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 45%;
+    height: 1px;
+    background-color: #ddd;
+}
+
+.auth-divider::before {
+    left: 0;
+}
+
+.auth-divider::after {
+    right: 0;
+}
+
+.social-auth {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.social-btn {
+    padding: 0.875rem;
+    border: 2px solid #ddd;
+    background-color: var(--white);
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    color: var(--text-dark);
+}
+
+.social-btn:hover {
+    border-color: var(--primary-color);
+    background-color: #f9f9f9;
+}
+
+.social-btn i {
+    font-size: 1.1rem;
+}
+
+.auth-image {
+    display: none;
+    overflow: hidden;
+    border-radius: 12px;
+}
+
+.auth-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
 /* ===== Profile Page ===== */
 .profile-section {
     max-width: 1400px;
@@ -1523,6 +1726,9 @@ body {
     .dashboard-grid { grid-template-columns: repeat(2, 1fr); }
     .product-detail-container { grid-template-columns: 1fr; }
     .product-benefits { grid-template-columns: repeat(2, 1fr); }
+    
+    .auth-container { grid-template-columns: 1fr; }
+    .auth-image { display: block !important; max-height: 400px; }
 }
 
 @media (max-width: 768px) {
@@ -1580,6 +1786,12 @@ body {
     .main-image { height: 350px; }
     .product-detail-container { grid-template-columns: 1fr; }
     .form-row { grid-template-columns: 1fr; }
+    
+    .auth-section { padding: 1rem; min-height: auto; }
+    .auth-container { gap: 0; }
+    .auth-card { padding: 2rem; }
+    .auth-card h1 { font-size: 1.5rem; }
+    .auth-image { max-height: 250px; }
 }
 
 @media (max-width: 480px) {
@@ -1651,6 +1863,17 @@ body {
     
     .form-row { grid-template-columns: 1fr; }
     .cta-button.full-width, .secondary-button.full-width { width: 100%; }
+    
+    .auth-section { padding: 0.75rem; }
+    .auth-container { border-radius: 8px; }
+    .auth-card { padding: 1.5rem; }
+    .auth-card h1 { font-size: 1.3rem; }
+    .auth-card > p { font-size: 0.95rem; }
+    .auth-form { gap: 1rem; }
+    .form-group input { padding: 0.75rem; font-size: 0.9rem; }
+    .social-auth { grid-template-columns: 1fr; }
+    .social-btn { font-size: 0.85rem; padding: 0.75rem; }
+    .auth-image { display: none; }
 }
 
 @media (max-width: 390px) {
