@@ -323,6 +323,9 @@ body {
     padding-top: 1rem;
 }
 
+.product-footer .quantity-control {
+    margin-right: 0.5rem;
+}
 .price {
     font-size: 1.5rem;
     color: var(--accent-color);

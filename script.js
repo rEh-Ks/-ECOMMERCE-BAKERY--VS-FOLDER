@@ -147,6 +147,15 @@ function updateCartItemQuantity(productId, quantity) {
     }
 }
 
+// adjust quantity controls on listing cards
+function changeProductQty(productId, delta) {
+    const input = document.getElementById(`qty-${productId}`);
+    if (!input) return;
+    let val = parseInt(input.value) || 1;
+    val = Math.max(1, val + delta);
+    input.value = val;
+}
+
 // ===== User Authentication =====
 function getUser() {
     return JSON.parse(localStorage.getItem('user'));
@@ -300,7 +309,15 @@ function displayProducts(productsToDisplay) {
                 </div>
                 <div class="product-footer">
                     <span class="price">₦${product.price.toFixed(0)}</span>
-                    <button class="add-to-cart" onclick="event.stopPropagation(); addToCart(${product.id})">
+
+                    <!-- quantity selector for listing -->
+                    <div class="quantity-control" onclick="event.stopPropagation();">
+                        <button onclick="event.stopPropagation(); changeProductQty(${product.id}, -1)">-</button>
+                        <input type="number" id="qty-${product.id}" value="1" min="1" onclick="event.stopPropagation();">
+                        <button onclick="event.stopPropagation(); changeProductQty(${product.id}, 1)">+</button>
+                    </div>
+
+                    <button class="add-to-cart" onclick="event.stopPropagation(); addToCart(${product.id}, parseInt(document.getElementById('qty-${product.id}').value))">
                         <i class="fas fa-shopping-cart"></i>
                     </button>
                 </div>
@@ -395,9 +412,9 @@ function initCartPage() {
                 </div>
                 <div class="cart-item-actions">
                     <div class="quantity-control">
-                        <button onclick="updateCartItemQuantity(${item.id}, ${item.quantity - 1})">-</button>
-                        <input type="number" value="${item.quantity}" readonly>
-                        <button onclick="updateCartItemQuantity(${item.id}, ${item.quantity + 1})">+</button>
+                        <button onclick="updateCartItemQuantity(${item.id}, ${item.quantity - 1}); initCartPage();">-</button>
+                        <input type="number" value="${item.quantity}" min="1" onchange="updateCartItemQuantity(${item.id}, parseInt(this.value)); initCartPage();">
+                        <button onclick="updateCartItemQuantity(${item.id}, ${item.quantity + 1}); initCartPage();">+</button>
                     </div>
                     <span class="cart-item-price">₦${(item.price * item.quantity).toFixed(0)}</span>
                     <button class="remove-item" onclick="removeFromCart(${item.id}); initCartPage();">
