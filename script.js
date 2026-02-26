@@ -395,9 +395,9 @@ function initCartPage() {
                 </div>
                 <div class="cart-item-actions">
                     <div class="quantity-control">
-                        <button onclick="updateCartItemQuantity(${item.id}, ${item.quantity - 1})">-</button>
+                        <button onclick="updateCartItemQuantity(${item.id}, ${item.quantity - 1}); initCartPage();">-</button>
                         <input type="number" value="${item.quantity}" readonly>
-                        <button onclick="updateCartItemQuantity(${item.id}, ${item.quantity + 1})">+</button>
+                        <button onclick="updateCartItemQuantity(${item.id}, ${item.quantity + 1}); initCartPage();">+</button>
                     </div>
                     <span class="cart-item-price">₦${(item.price * item.quantity).toFixed(0)}</span>
                     <button class="remove-item" onclick="removeFromCart(${item.id}); initCartPage();">
