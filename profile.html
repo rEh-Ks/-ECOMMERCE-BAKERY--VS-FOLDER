@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile - popis Bakery</title>
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" defer>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <i class="fas fa-birthday-cake"></i>
+                <span>popis Bakery</span>
+            </a>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="products.html" class="nav-link">Products</a></li>
+                <li><a href="cart.html" class="nav-link cart-icon"><i class="fas fa-shopping-cart"></i><span class="cart-count" id="cartCount">0</span></a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- User Profile Page -->
+    <section class="profile-section">
+        <div class="profile-container">
+            <!-- Sidebar Menu -->
+            <aside class="profile-sidebar">
+                <div class="profile-header">
+                    <img id="profileImage" src="assets/customer1.jpg" alt="Profile" class="profile-avatar">
+                    <h2 id="profileName">User Name</h2>
+                    <p id="profileEmail">email@example.com</p>
+                </div>
+
+                <nav class="profile-menu">
+                    <button class="profile-menu-item active" data-section="dashboard">
+                        <i class="fas fa-home"></i> Dashboard
+                    </button>
+                    <button class="profile-menu-item" data-section="orders">
+                        <i class="fas fa-box"></i> My Orders
+                    </button>
+                    <button class="profile-menu-item" data-section="addresses">
+                        <i class="fas fa-map-marker-alt"></i> Addresses
+                    </button>
+                    <button class="profile-menu-item" data-section="wishlist">
+                        <i class="fas fa-heart"></i> Wishlist
+                    </button>
+                    <button class="profile-menu-item" data-section="reviews">
+                        <i class="fas fa-star"></i> My Reviews
+                    </button>
+                    <button class="profile-menu-item" data-section="settings">
+                        <i class="fas fa-cog"></i> Settings
+                    </button>
+                    <button class="profile-menu-item" onclick="logout()">
+                        <i class="fas fa-sign-out-alt"></i> Logout
+                    </button>
+                </nav>
+            </aside>
+
+            <!-- Main Content -->
+            <main class="profile-content">
+                <!-- Dashboard Section -->
+                <section id="dashboard-section" class="profile-section-content active">
+                    <h1>Welcome Back!</h1>
+                    <div class="dashboard-grid">
+                        <div class="dashboard-card">
+                            <i class="fas fa-box"></i>
+                            <h3 id="totalOrders">0</h3>
+                            <p>Total Orders</p>
+                        </div>
+                        <div class="dashboard-card">
+                            <i class="fas fa-clock"></i>
+                            <h3 id="pendingOrders">0</h3>
+                            <p>Pending Orders</p>
+                        </div>
+                        <div class="dashboard-card">
+                            <i class="fas fa-heart"></i>
+                            <h3 id="wishlistCount">0</h3>
+                            <p>Wishlist Items</p>
+                        </div>
+                        <div class="dashboard-card">
+                            <i class="fas fa-gift"></i>
+                            <h3>₦0.00</h3>
+                            <p>Total Spent</p>
+                        </div>
+                    </div>
+
+                    <h2>Recent Orders</h2>
+                    <div id="recentOrders" class="orders-list">
+                        <p>No orders yet</p>
+                    </div>
+                </section>
+
+                <!-- Orders Section -->
+                <section id="orders-section" class="profile-section-content">
+                    <h1>My Orders</h1>
+                    <div id="ordersContainer" class="orders-list">
+                        <p>No orders found</p>
+                    </div>
+                </section>
+
+                <!-- Addresses Section -->
+                <section id="addresses-section" class="profile-section-content">
+                    <h1>My Addresses</h1>
+                    <button class="cta-button" onclick="showAddressForm()">Add New Address</button>
+                    
+                    <div id="addressesContainer" class="addresses-grid">
+                        <!-- Addresses will be loaded here -->
+                    </div>
+
+                    <div id="addressForm" class="address-form" style="display: none;">
+                        <h2>Add New Address</h2>
+                        <form id="newAddressForm">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="addrFirstName">First Name</label>
+                                    <input type="text" id="addrFirstName" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="addrLastName">Last Name</label>
+                                    <input type="text" id="addrLastName" required>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="addrAddress">Address</label>
+                                <input type="text" id="addrAddress" required>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="addrCity">City</label>
+                                    <input type="text" id="addrCity" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="addrState">State</label>
+                                    <input type="text" id="addrState" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="addrZip">ZIP</label>
+                                    <input type="text" id="addrZip" required>
+                                </div>
+                            </div>
+
+                            <button type="submit" class="cta-button">Save Address</button>
+                            <button type="button" class="secondary-button" onclick="hideAddressForm()">Cancel</button>
+                        </form>
+                    </div>
+                </section>
+
+                <!-- Wishlist Section -->
+                <section id="wishlist-section" class="profile-section-content">
+                    <h1>My Wishlist</h1>
+                    <div id="wishlistContainer" class="products-grid">
+                        <p>No items in wishlist</p>
+                    </div>
+                </section>
+
+                <!-- Reviews Section -->
+                <section id="reviews-section" class="profile-section-content">
+                    <h1>My Reviews</h1>
+                    <div id="reviewsContainer" class="reviews-list">
+                        <p>You haven't written any reviews yet</p>
+                    </div>
+                </section>
+
+                <!-- Settings Section -->
+                <section id="settings-section" class="profile-section-content">
+                    <h1>Account Settings</h1>
+                    
+                    <div class="settings-card">
+                        <h2>Personal Information</h2>
+                        <form id="personalInfoForm">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="settingsFirstName">First Name</label>
+                                    <input type="text" id="settingsFirstName" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="settingsLastName">Last Name</label>
+                                    <input type="text" id="settingsLastName" required>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="settingsEmail">Email</label>
+                                <input type="email" id="settingsEmail" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="settingsPhone">Phone</label>
+                                <input type="tel" id="settingsPhone">
+                            </div>
+
+                            <button type="submit" class="cta-button">Save Changes</button>
+                        </form>
+                    </div>
+
+                    <div class="settings-card">
+                        <h2>Change Password</h2>
+                        <form id="passwordForm">
+                            <div class="form-group">
+                                <label for="currentPassword">Current Password</label>
+                                <input type="password" id="currentPassword" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="newPassword">New Password</label>
+                                <input type="password" id="newPassword" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="confirmNewPassword">Confirm Password</label>
+                                <input type="password" id="confirmNewPassword" required>
+                            </div>
+
+                            <button type="submit" class="cta-button">Change Password</button>
+                        </form>
+                    </div>
+
+                    <div class="settings-card danger">
+                        <h2>Delete Account</h2>
+                        <p>Permanently delete your account and all associated data</p>
+                        <button class="danger-button" onclick="deleteAccount()">Delete Account</button>
+                    </div>
+                </section>
+            </main>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-bottom">
+            <p>&copy; 2026 popis Bakery. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js" defer></script>
+</body>
+</html>

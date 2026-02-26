@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Confirmation - popis Bakery</title>
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" defer>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <i class="fas fa-birthday-cake"></i>
+                <span>popis Bakery</span>
+            </a>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="products.html" class="nav-link">Products</a></li>
+                <li><a href="cart.html" class="nav-link cart-icon"><i class="fas fa-shopping-cart"></i><span class="cart-count" id="cartCount">0</span></a></li>
+                <li id="authMenu">
+                    <a href="login.html" class="nav-link">Login</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Order Confirmation Page -->
+    <section class="confirmation-section">
+        <div class="confirmation-container">
+            <div class="confirmation-success">
+                <i class="fas fa-check-circle"></i>
+                <h1>Order Confirmed!</h1>
+                <p>Thank you for your order</p>
+            </div>
+
+            <div class="confirmation-content">
+                <!-- Order Details -->
+                <div class="order-details">
+                    <h2>Order Details</h2>
+                    
+                    <div class="detail-grid">
+                        <div class="detail-item">
+                            <label>Order Number</label>
+                            <p id="orderNumber">#ORD123456</p>
+                        </div>
+                        <div class="detail-item">
+                            <label>Order Date</label>
+                            <p id="orderDate">Feb 14, 2026</p>
+                        </div>
+                        <div class="detail-item">
+                            <label>Estimated Delivery</label>
+                            <p id="deliveryDate">Feb 19, 2026</p>
+                        </div>
+                        <div class="detail-item">
+                            <label>Order Total</label>
+                            <p id="orderTotal">₦0.00</p>
+                        </div>
+                    </div>
+
+                    <h3>Items Ordered</h3>
+                    <div id="confirmationItems" class="order-items">
+                        <!-- Items will be loaded here -->
+                    </div>
+
+                    <!-- Shipping Address -->
+                    <h3>Shipping Address</h3>
+                    <div class="address-box">
+                        <p id="shippingName">John Doe</p>
+                        <p id="shippingAddress">123 Main St</p>
+                        <p id="shippingCity">New York, NY 10001</p>
+                        <p id="shippingPhone">+1 (555) 123-4567</p>
+                    </div>
+
+                    <!-- Billing Address -->
+                    <h3>Billing Address</h3>
+                    <div class="address-box">
+                        <p id="billingAddress">(Same as shipping)</p>
+                    </div>
+                </div>
+
+                <!-- Next Steps -->
+                <div class="next-steps">
+                    <h2>What's Next?</h2>
+                    <div class="steps-list">
+                        <div class="step-item">
+                            <span class="step-icon">1</span>
+                            <div>
+                                <h4>Confirmation Email Sent</h4>
+                                <p>Check your email for the order confirmation and tracking details</p>
+                            </div>
+                        </div>
+                        <div class="step-item">
+                            <span class="step-icon">2</span>
+                            <div>
+                                <h4>Order Processing</h4>
+                                <p>Your order will be prepared and packaged within 24 hours</p>
+                            </div>
+                        </div>
+                        <div class="step-item">
+                            <span class="step-icon">3</span>
+                            <div>
+                                <h4>Shipping</h4>
+                                <p>We'll send your items via your selected shipping method</p>
+                            </div>
+                        </div>
+                        <div class="step-item">
+                            <span class="step-icon">4</span>
+                            <div>
+                                <h4>Delivery</h4>
+                                <p>Track your package and receive it at your doorstep</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Actions -->
+                <div class="confirmation-actions">
+                    <a href="profile.html" class="cta-button">View in My Orders</a>
+                    <a href="products.html" class="secondary-button">Continue Shopping</a>
+                    <button onclick="window.print()" class="print-button"><i class="fas fa-print"></i> Print Receipt</button>
+                </div>
+
+                <!-- Contact Info -->
+                <div class="contact-info-box">
+                    <h3>Need Help?</h3>
+                    <p>If you have any questions about your order, contact us at:</p>
+                    <p><strong>Email:</strong> support@popisabakery.com</p>
+                    <p><strong>Phone:</strong> 1-800-BAKERY-1</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-bottom">
+            <p>&copy; 2026 popis Bakery. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js" defer></script>
+</body>
+</html>

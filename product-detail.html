@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details - popis Bakery</title>
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" defer>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <i class="fas fa-birthday-cake"></i>
+                <span>popis Bakery</span>
+            </a>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="products.html" class="nav-link">Products</a></li>
+                <li><a href="cart.html" class="nav-link cart-icon"><i class="fas fa-shopping-cart"></i><span class="cart-count" id="cartCount">0</span></a></li>
+                <li id="authMenu">
+                    <a href="login.html" class="nav-link">Login</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+        <a href="index.html">Home</a>
+        <span>/</span>
+        <a href="products.html">Products</a>
+        <span>/</span>
+        <span id="breadcrumbName">Product</span>
+    </div>
+
+    <!-- Product Detail Section -->
+    <section class="product-detail">
+        <div class="product-detail-container">
+            <div class="product-images">
+                <div class="main-image">
+                    <img id="mainImage" src="assets/croissant.jpg" alt="Product">
+                </div>
+                <div class="thumbnail-images" id="thumbnails">
+                    <!-- Thumbnails will be loaded here -->
+                </div>
+            </div>
+
+            <div class="product-details-content">
+                <h1 id="productName">Product Name</h1>
+                
+                <div class="rating-section">
+                    <div class="stars" id="productStars"></div>
+                    <span id="reviewCount">(0 reviews)</span>
+                </div>
+
+                <div class="price-section">
+                    <span class="price" id="productPrice">₦0.00</span>
+                    <span class="stock" id="stockStatus">In Stock</span>
+                </div>
+
+                <p class="product-description" id="productDescription">Product description goes here</p>
+
+                <div class="product-specs">
+                    <h3>Product Details</h3>
+                    <ul id="productSpecs">
+                        <!-- Specs will be loaded here -->
+                    </ul>
+                </div>
+
+                <div class="product-actions">
+                    <div class="quantity-selector">
+                        <button id="decreaseQty">-</button>
+                        <input type="number" id="quantity" value="1" min="1">
+                        <button id="increaseQty">+</button>
+                    </div>
+                    <button id="addToCartBtn" class="cta-button">Add to Cart</button>
+                    <button id="wishlistBtn" class="wishlist-btn"><i class="fas fa-heart"></i></button>
+                </div>
+
+                <div class="product-benefits">
+                    <div class="benefit">
+                        <i class="fas fa-leaf"></i>
+                        <p>Premium Ingredients</p>
+                    </div>
+                    <div class="benefit">
+                        <i class="fas fa-truck"></i>
+                        <p>Fast Delivery</p>
+                    </div>
+                    <div class="benefit">
+                        <i class="fas fa-undo"></i>
+                        <p>Easy Returns</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Related Products -->
+        <div class="related-products">
+            <h2>Related Products</h2>
+            <div class="products-grid" id="relatedProducts">
+                <!-- Related products will be loaded here -->
+            </div>
+        </div>
+
+        <!-- Reviews Section -->
+        <div class="reviews-section">
+            <h2>Customer Reviews</h2>
+            <div class="reviews-container" id="reviewsContainer">
+                <!-- Reviews will be loaded here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-bottom">
+            <p>&copy; 2026 popis Bakery. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js" defer></script>
+</body>
+</html>

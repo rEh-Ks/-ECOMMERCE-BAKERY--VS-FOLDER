@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Order artisan pastries, cakes and breads from Popis Bakery. Freshly baked and delivered to your doorstep.">
+    <link rel="canonical" href="https://yourdomain.com/index.html">
+    <meta name="robots" content="index,follow">
+    <title>Popis Bakery - Premium Bakery & Pastries</title>
+
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <!-- critical CSS inlined to reduce render-blocking -->
+    <style>
+      .navbar{position:sticky;top:0;background-color:#fff;box-shadow:var(--shadow);z-index:1000;padding:1rem 0;}
+      .hero{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center;max-width:1200px;margin:4rem auto;padding:0 2rem;min-height:500px;}
+      .hero-content h1{font-size:3.5rem;color:var(--secondary-color);margin-bottom:1rem;line-height:1.2;}
+    </style>
+    <link rel="preload" href="style.css" as="style" onload="this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="style.css"></noscript>
+    <!-- non‑blocking fontawesome -->
+    <link rel="preload" href="style.css" as="style" onload="this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="style.css"></noscript>
+    <!-- non‑blocking fontawesome -->
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" as="style" onload="this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"></noscript>
+
+    <!-- preload hero image for LCP -->
+    <link rel="preload" as="image" href="./assets/d-zeri-national-pakhlava-shekerbura-gogal.jpg">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <i class="fas fa-birthday-cake"></i>
+                <span>Popis Bakery</span>
+            </a>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="products.html" class="nav-link">Products</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#testimonials" class="nav-link">Reviews</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+                <li><a href="cart.html" class="nav-link cart-icon"><i class="fas fa-shopping-cart"></i><span class="cart-count" id="cartCount">0</span></a></li>
+                <li id="authMenu">
+                    <a href="login.html" class="nav-link">Login</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Freshly Baked Goodness</h1>
+            <p>Artisan pastries and custom cakes made with love and premium ingredients</p>
+            <button class="cta-button">Order Now</button>
+        </div>
+        <div class="hero-image">
+            <img src="./assets/d-zeri-national-pakhlava-shekerbura-gogal.jpg" alt="Fresh Baked Pastries" loading="eager" width="1200" height="800">
+        </div>
+    </section>
+
+    <!-- Featured Products Section -->
+    <section id="products" class="products">
+        <h2>Featured Products</h2>
+        <p class="section-subtitle">Handcrafted with passion and perfection</p>
+        
+        <div class="products-grid">
+            <!-- Product 1 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="./assets/close-up-composition-tasty-croissants.jpg" alt="Butter Croissant" loading="lazy">
+                    <span class="badge">Featured</span>
+                </div>
+                <div class="product-info">
+                    <h3>Butter Croissants</h3>
+                    <p>Flaky, buttery layers of perfection</p>
+                    <div class="product-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <span>(127 reviews)</span>
+                    </div>
+                    <div class="product-footer">
+                        <span class="price">₦7,500</span>
+                        <button class="add-to-cart"><i class="fas fa-shopping-cart"></i></button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 2 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="./assets/front-view-delicious-cake-concept.jpg" alt="Chocolate Cake">
+                    <span class="badge">Best Seller</span>
+                </div>
+                <div class="product-info">
+                    <h3>Rich Chocolate Cake</h3>
+                    <p>Decadent chocolate delight with smooth frosting</p>
+                    <div class="product-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half"></i>
+                        <span>(98 reviews)</span>
+                    </div>
+                    <div class="product-footer">
+                        <span class="price">₦37,500</span>
+                        <button class="add-to-cart"><i class="fas fa-shopping-cart"></i></button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 3 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="./assets/side-view-qoqal-with-semeni-wooden-box.jpg" alt="Sourdough Bread">
+                    <span class="badge">Organic</span>
+                </div>
+                <div class="product-info">
+                    <h3>Artisan Sourdough</h3>
+                    <p>Traditional sourdough with wild fermentation</p>
+                    <div class="product-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <span>(156 reviews)</span>
+                    </div>
+                    <div class="product-footer">
+                        <span class="price">₦13,500</span>
+                        <button class="add-to-cart"><i class="fas fa-shopping-cart"></i></button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 4 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="./assets/colorful-macarons-plate.jpg" alt="Macarons">
+                    <span class="badge">Premium</span>
+                </div>
+                <div class="product-info">
+                    <h3>French Macarons</h3>
+                    <p>Delicate almond meringue cookies in assorted flavors</p>
+                    <div class="product-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <span>(203 reviews)</span>
+                    </div>
+                    <div class="product-footer">
+                        <span class="price">₦19,500</span>
+                        <button class="add-to-cart"><i class="fas fa-shopping-cart"></i></button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 5 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="./assets/delicious-cupcakes-with-blueberries.jpg" alt="Cupcakes">
+                    <span class="badge">New</span>
+                </div>
+                <div class="product-info">
+                    <h3>Gourmet Cupcakes</h3>
+                    <p>Moist cakes with premium frosting and toppings</p>
+                    <div class="product-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half"></i>
+                        <span>(89 reviews)</span>
+                    </div>
+                    <div class="product-footer">
+                        <span class="price">₦10,500</span>
+                        <button class="add-to-cart"><i class="fas fa-shopping-cart"></i></button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 6 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="./assets/cinnamon-raisin-roll.jpg" alt="Danish Pastries">
+                    <span class="badge">Fresh Daily</span>
+                </div>
+                <div class="product-info">
+                    <h3>Danish Pastries</h3>
+                    <p>Buttery layers with sweet fillings</p>
+                    <div class="product-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <span>(134 reviews)</span>
+                    </div>
+                    <div class="product-footer">
+                        <span class="price">₦9,000</span>
+                        <button class="add-to-cart"><i class="fas fa-shopping-cart"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+   
+    <section id="about" class="about">
+        <div class="about-content">
+            <h2>Why Choose Popis Bakery?</h2>
+            <div class="about-features">
+                <div class="feature">
+                    <i class="fas fa-leaf"></i>
+                    <h3>Premium Ingredients</h3>
+                    <p>Only the finest, freshest ingredients sourced locally and globally</p>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-hands"></i>
+                    <h3>Handcrafted</h3>
+                    <p>Each item is carefully prepared by our expert bakers</p>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-truck"></i>
+                    <h3>Fast Delivery</h3>
+                    <p>Fresh baked goods delivered to your doorstep within 24 hours</p>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-heart"></i>
+                    <h3>100% Satisfaction</h3>
+                    <p>Money-back guarantee if you're not completely satisfied</p>
+                </div>
+            </div>
+        </div>
+        <div class="about-image">
+            <img src="./assets/The Baker's Story __ A Short Film.jpg" alt="Our Bakery">
+        </div>
+    </section>
+
+   
+    <section id="testimonials" class="testimonials">
+        <h2>What Our Customers Say</h2>
+        <p class="section-subtitle">Real reviews from happy customers</p>
+        
+        <div class="testimonials-grid">
+            <div class="testimonial-card">
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+                <p>"Best croissants I've ever had! The butter is so rich and flaky. Will definitely order again!"</p>
+                <div class="customer-info">
+                    <img src="./assets/download (63).jpg" alt="Sarah">
+                    <div>
+                        <h4>Sarah Johnson</h4>
+                        <span>Verified Purchase</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="testimonial-card">
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+                <p>"Ordered the chocolate cake for my daughter's birthday - it was absolutely stunning and delicious!"</p>
+                <div class="customer-info">
+                    <img src="./assets/download (62).jpg" alt="Michael">
+                    <div>
+                        <h4>Michael Chen</h4>
+                        <span>Verified Purchase</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="testimonial-card">
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half"></i>
+                </div>
+                <p>"The sourdough bread is fantastic! Such a wonderful flavor. Now it's my go-to bakery!"</p>
+                <div class="customer-info">
+                    <img src="./assets/download (64).jpg" alt="Emma">
+                    <div>
+                        <h4>Emma Williams</h4>
+                        <span>Verified Purchase</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+    <section id="contact" class="contact">
+        <h2>Get in Touch</h2>
+        <div class="contact-content">
+            <div class="contact-info">
+                <div class="info-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <div>
+                        <h3>Visit Us</h3>
+                        <p>123 Baker Street, Sweet City, SC 12345</p>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-phone"></i>
+                    <div>
+                        <h3>Call Us</h3>
+                        <p><a href="tel:+2348083655558" style="text-decoration: none; color: inherit;">08083655558</a></p>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-envelope"></i>
+                    <div>
+                        <h3>Email Us</h3>
+                        <p>hello@popisbakery.com</p>
+                    </div>
+                </div>
+            </div>
+            <form class="contact-form">
+                <input type="text" placeholder="Your Name" required>
+                <input type="email" placeholder="Your Email" required>
+                <textarea placeholder="Your Message" rows="5" required></textarea>
+                <button type="submit" class="cta-button">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+ 
+    
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Popis Bakery</h4>
+                <p>Crafting happiness one pastry at a time since 2025</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-pinterest"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#products">Shop</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#">Custom Orders</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Customer Service</h4>
+                <ul>
+                    <li><a href="#">Order Tracking</a></li>
+                    <li><a href="#">Returns & Exchanges</a></li>
+                    <li><a href="#">Shipping Info</a></li>
+                    <li><a href="#">FAQ</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Information</h4>
+                <ul>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">Allergen Info</a></li>
+                    <li><a href="#">Blog</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Popis Bakery. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Bakery",
+      "name": "Popis Bakery",
+      "url": "https://yourdomain.com",
+      "sameAs": [
+        "https://www.facebook.com/popisbakery",
+        "https://www.instagram.com/popisbakery"
+      ],
+      "priceRange": "$$",
+      "description": "Artisan bakery offering pastries, cakes and breads."
+    }
+    </script>
+    <script src="script.js" defer></script>
+</body>
+</html>
