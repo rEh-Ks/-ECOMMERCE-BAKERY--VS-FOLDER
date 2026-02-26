@@ -2358,8 +2358,12 @@ body {
 
     .cart-item {
         grid-template-columns: 70px 1fr;
-        gap: 0.75rem;
-        padding: 1rem;
+    }
+
+    .cta-button,
+    .secondary-button {
+        padding: 0.75rem 1rem;
+        font-size: 0.9rem;
     }
 
     .quantity-control {
@@ -2396,3 +2400,47 @@ body {
     }
 }
 
+/* specific adjustments for very narrow phones (e.g. iPhone 12 Pro 390px width) */
+@media (max-width: 390px) {
+    .products-grid {
+        grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+        gap: 0.75rem;
+        padding: 0 0.5rem;
+    }
+
+    .hero-content h1 {
+        font-size: 1.3rem;
+    }
+
+    .hero-content p,
+    .products-header p {
+        font-size: 0.9rem;
+    }
+
+    .quantity-control input {
+        width: 30px;
+    }
+
+    .nav-container {
+        padding: 0 0.5rem;
+    }
+
+    .nav-menu a {
+        padding: 0.8rem 1rem;
+    }
+
+    .product-footer .price {
+        font-size: 1.25rem;
+    }
+
+    .cart-summary,
+    .checkout-summary {
+        font-size: 0.9rem;
+    }
+
+    .cta-button,
+    .secondary-button {
+        padding: 0.7rem 0.9rem;
+        font-size: 0.85rem;
+    }
+}
