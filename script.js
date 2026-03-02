@@ -7,7 +7,7 @@ const products = [
         category: 'pastries',
         rating: 5,
         reviews: 127,
-        image: 'assets/close-up-composition-tasty-croissants.jpg',
+        image: 'assets/close-up-composition-tasty-croissants (1).jpg',
         description: 'Flaky, buttery layers of perfection baked fresh daily',
         specs: ['Made with French butter', 'Baked fresh daily', 'Contains wheat, dairy']
     },
@@ -18,7 +18,7 @@ const products = [
         category: 'cakes',
         rating: 4.5,
         reviews: 98,
-        image: 'assets/front-view-delicious-cake-concept.jpg',
+        image: 'assets/front-view-delicious-cake-concept (1).jpg',
         description: 'Decadent chocolate delight with smooth frosting',
         specs: ['Double chocolate layers', 'Premium cocoa', 'Contains wheat, dairy, eggs']
     },
@@ -29,7 +29,7 @@ const products = [
         category: 'bread',
         rating: 5,
         reviews: 156,
-        image: 'assets/side-view-qoqal-with-semeni-wooden-box.jpg',
+        image: 'assets/side-view-qoqal-with-semeni-wooden-box (1).jpg',
         description: 'Traditional sourdough with wild fermentation',
         specs: ['Wild fermented', 'Organic flour', 'No preservatives']
     },
@@ -40,7 +40,7 @@ const products = [
         category: 'cookies',
         rating: 5,
         reviews: 203,
-        image: 'assets/colorful-macarons-plate.jpg',
+        image: 'assets/colorful-macarons-plate (1).jpg',
         description: 'Delicate almond meringue cookies in assorted flavors',
         specs: ['12-piece assortment', 'Almond-based', 'Contains eggs, dairy']
     },
@@ -51,7 +51,7 @@ const products = [
         category: 'cakes',
         rating: 4.5,
         reviews: 89,
-        image: 'assets/delicious-cupcakes-with-blueberries.jpg',
+        image: 'assets/delicious-cupcakes-with-blueberries (1).jpg',
         description: 'Moist cakes with premium frosting and toppings',
         specs: ['6-piece box', 'Premium vanilla', 'Customizable flavors']
     },
@@ -62,7 +62,7 @@ const products = [
         category: 'pastries',
         rating: 5,
         reviews: 134,
-        image: 'assets/delicious-cinnamon-rolls-tray.jpg',
+        image: 'assets/delicious-cinnamon-rolls-tray (1).jpg',
         description: 'Buttery layers with sweet fillings',
         specs: ['Fresh daily', 'Multiple flavors', 'Contains wheat, dairy']
     }
@@ -287,7 +287,7 @@ function displayProducts(productsToDisplay) {
     grid.innerHTML = productsToDisplay.map(product => `
         <div class="product-card" onclick="goToProduct(${product.id})">
             <div class="product-image">
-                <img src="${product.image}" alt="${product.name}" width="300" height="250" loading="lazy" onerror="this.src='./assets/backup-image.jpg'">
+                <img src="${product.image}" alt="${product.name}" width="300" height="250" loading="lazy" onerror="this.src='./assets/download (62) (1).jpg'">
                 <span class="badge">Featured</span>
             </div>
             <div class="product-info">
@@ -313,6 +313,52 @@ function goToProduct(productId) {
     window.location.href = `product-detail.html?id=${productId}`;
 }
 
+// ===== Wishlist Management =====
+function getWishlist() {
+    return JSON.parse(localStorage.getItem('wishlist')) || [];
+}
+
+function saveWishlist(wishlist) {
+    localStorage.setItem('wishlist', JSON.stringify(wishlist));
+}
+
+function toggleWishlist(productId) {
+    let wishlist = getWishlist();
+    const index = wishlist.indexOf(productId);
+    
+    if (index > -1) {
+        wishlist.splice(index, 1);
+        showNotification('Removed from wishlist');
+    } else {
+        wishlist.push(productId);
+        showNotification('Added to wishlist!');
+    }
+    
+    saveWishlist(wishlist);
+}
+
+function updateWishlistButton(productId) {
+    const wishlistBtn = document.getElementById('wishlistBtn');
+    const wishlist = getWishlist();
+    
+    if (wishlistBtn) {
+        if (wishlist.includes(productId)) {
+            wishlistBtn.classList.add('active');
+            wishlistBtn.innerHTML = '<i class="fas fa-heart"></i>';
+        } else {
+            wishlistBtn.classList.remove('active');
+            wishlistBtn.innerHTML = '<i class="far fa-heart"></i>';
+        }
+    }
+}
+
+function removeFromWishlist(productId) {
+    let wishlist = getWishlist();
+    wishlist = wishlist.filter(id => id !== productId);
+    saveWishlist(wishlist);
+    showNotification('Removed from wishlist');
+}
+
 // ===== Product Detail Page =====
 function initProductDetailPage() {
     const params = new URLSearchParams(window.location.search);
@@ -328,7 +374,7 @@ function initProductDetailPage() {
     document.getElementById('productName').textContent = product.name;
     document.getElementById('mainImage').src = product.image;
     document.getElementById('mainImage').loading = 'lazy';
-    document.getElementById('mainImage').onerror = function() { this.src = './assets/backup-image.jpg'; };
+    document.getElementById('mainImage').onerror = function() { this.src = './assets/download (62) (1).jpg'; };
     document.getElementById('productPrice').textContent = `₦${product.price.toFixed(0)}`;
     document.getElementById('productDescription').textContent = product.description;
     document.getElementById('productStars').innerHTML = Array(Math.floor(product.rating)).fill('<i class="fas fa-star"></i>').join('');
@@ -349,13 +395,22 @@ function initProductDetailPage() {
         addToCart(product.id, parseInt(quantityInput.value));
     });
 
+    const wishlistBtn = document.getElementById('wishlistBtn');
+    updateWishlistButton(product.id);
+    if (wishlistBtn) {
+        wishlistBtn?.addEventListener('click', () => {
+            toggleWishlist(product.id);
+            updateWishlistButton(product.id);
+        });
+    }
+
     const related = products.filter(p => p.category === product.category && p.id !== product.id);
     const relatedContainer = document.getElementById('relatedProducts');
     if (relatedContainer) {
         relatedContainer.innerHTML = related.map(p => `
             <div class="product-card" onclick="goToProduct(${p.id})">
                 <div class="product-image">
-                    <img src="${p.image}" alt="${p.name}" loading="lazy" onerror="this.src='./assets/backup-image.jpg'">
+                    <img src="${p.image}" alt="${p.name}" loading="lazy" onerror="this.src='./assets/download (62) (1).jpg'">
                 </div>
                 <div class="product-info">
                     <h3>${p.name}</h3>
@@ -387,7 +442,7 @@ function initCartPage() {
         cartItems.innerHTML = cart.map(item => `
             <div class="cart-item">
                 <div class="cart-item-image">
-                    <img src="${item.image}" alt="${item.name}" loading="lazy" onerror="this.src='./assets/backup-image.jpg'">
+                    <img src="${item.image}" alt="${item.name}" loading="lazy" onerror="this.src='./assets/download (62) (1).jpg'">
                 </div>
                 <div class="cart-item-details">
                     <h3>${item.name}</h3>
@@ -705,14 +760,17 @@ function loadWishlist() {
 
     const wishlistItems = products.filter(p => wishlist.includes(p.id));
     container.innerHTML = wishlistItems.map(p => `
-        <div class="product-card" onclick="goToProduct(${p.id})">
-            <div class="product-image">
-                <img src="${p.image}" alt="${p.name}" loading="lazy" onerror="this.src='./assets/backup-image.jpg'">
+        <div class="product-card">
+            <div class="product-image" onclick="goToProduct(${p.id})" style="cursor: pointer;">
+                <img src="${p.image}" alt="${p.name}" loading="lazy" onerror="this.src='./assets/download (62) (1).jpg'">
             </div>
             <div class="product-info">
-                <h3>${p.name}</h3>
+                <h3 onclick="goToProduct(${p.id})" style="cursor: pointer;">${p.name}</h3>
                 <div class="product-footer">
                     <span class="price">₦${p.price.toFixed(0)}</span>
+                    <button class="remove-item" onclick="removeFromWishlist(${p.id}); loadWishlist();" style="background: none; border: none; color: #dc3545; cursor: pointer; font-size: 1.2rem;">
+                        <i class="fas fa-trash"></i>
+                    </button>
                 </div>
             </div>
         </div>
